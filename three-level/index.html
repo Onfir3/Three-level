@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+    <div id="vmsimulatedDATA" class="productBox">
+        <div class="productConten">
+            <div class="product-delcom" v-for="(ProductItem,n) in simulatedDATA.specifications">
+                <p>{{ProductItem.name}}</p>
+                <ul class="product-footerlist clearfix">
+                    <li v-for="(oItem,index) in ProductItem.item" @click="specificationBtn(oItem.name,n,$event,index)"
+                    :class="[oItem.isShow?'':'noneActive',subIndex[n] == index?'productActive':'']"><el-button plain style="border-color: rgba(255, 255, 255, 0);">{{oItem.name}}</el-button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-footer">
+            <a href="javascript:">立即购买</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
